@@ -9,7 +9,6 @@ const userSchema = new mongoose.Schema({
     roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],
     addresses: [{type: mongoose.Schema.Types.ObjectId, ref:'Address'}],
     contacts: [{type: mongoose.Schema.Types.ObjectId, ref:'Contact'}],
-    roles: [{type: mongoose.Schema.Types.ObjectId, ref:'Role'}],
     createdAt: {type: Date, default: Date.now},
     updatedAt: {type: Date, default: Date.now},
 })

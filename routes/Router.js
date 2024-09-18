@@ -6,6 +6,9 @@ const { roleAuthorize } = require("../middlewares/authorizeGuard");
 // SYSTEM
 router.use("/api/users", require("./UserRoutes"));
 
+// CLIENTS
+router.use("/api/clients", require("./ClientRoutes"));
+
 // ADMIN
 router.use("/api/permissions", require("./AdminRoutes/PermissionRoutes"));
 router.use("/api/roles", require("./AdminRoutes/RoleRoutes"));
