@@ -7,9 +7,7 @@ const ContactDTO = require("../dtos/ContactDTO");
 const { off } = require("../models/User");
 
 class ClientService {
-
   static async registerClient(clientDTO) {
-
     //console.log("Dados recebidos na controller:", clientDTO);
 
     //Search clients with document cpf
@@ -114,7 +112,7 @@ class ClientService {
 
       client.contacts = contactIds;
     }
-    
+
     const updatedClient = await client.save();
 
     const clientWithoutCpf = {
@@ -137,6 +135,23 @@ class ClientService {
     return new ClientDTO(client);
   }
 
+  static async getAllClients() {
+    const clients = await Client.find({})
+      .populate({path: "contacts",})
+      .populate({path: "roles", select: "name",})
+      .select("-documents")
+      .sort([["createdAt", -1]])
+      .exec();
+
+    if (!clients) {
+      throw new Error("Nenhum cliente encontrado!");
+    }
+
+    const clientsDTO = clients.map((client) => new ClientDTO(client));
+
+    return clientsDTO;
+  }
+
   static async removeClient(id) {
     const client = await Client.findById(new mongoose.Types.ObjectId(id));
 
@@ -146,7 +161,6 @@ class ClientService {
 
     await Client.findByIdAndDelete(client._id);
   }
-
 }
 
 module.exports = ClientService;

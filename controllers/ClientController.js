@@ -29,6 +29,16 @@ const getClientById = async (req, res) => {
     res.status(422).json({ errors: [error.message] });
   }
 };
+
+const getAllClients = async (req, res) => {
+  try {
+    const clients = await ClientService.getAllClients();
+    res.status(201).json(clients);
+  } catch (error) {
+    res.status(422).json({ errors: [error.message] });
+  }
+};
+
 const removeClient = async (req, res) => {
   try {
     const client = await ClientService.removeClient(req.params.id);
@@ -42,5 +52,6 @@ module.exports = {
   registerClient,
   updateClient,
   getClientById,
+  getAllClients,
   removeClient
 };
