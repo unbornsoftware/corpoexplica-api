@@ -37,6 +37,9 @@ class ClientService {
     // Register the client
     const newClient = await Client.create({
       name: clientDTO.name,
+      birthday: clientDTO.birthday,
+      active: clientDTO.active,
+      type: clientDTO.type ? clientDTO.type : "client",
       documents: [
         {
           type: "cpf",
@@ -82,6 +85,7 @@ class ClientService {
 
     //Update
     if (clientDTO.name) client.name = clientDTO.name;
+    if (clientDTO.birthday) client.name = clientDTO.birthday;
     if (clientDTO.roles) client.roles = clientDTO.roles;
 
     if (clientDTO.contacts && Array.isArray(clientDTO.contacts)) {
