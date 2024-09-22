@@ -10,7 +10,7 @@ const contactSchema = new mongoose.Schema({
     
     userType: {
         type: String,
-        enum: ["User", "Especialist"],
+        enum: ["client", "especialist"],
         required: true
     },
 

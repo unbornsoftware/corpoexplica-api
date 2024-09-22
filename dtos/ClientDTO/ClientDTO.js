@@ -1,6 +1,7 @@
 class ClientDTO{
     constructor(client){
         this.id = client.id;
+        this.email = client.email;
         this.name = client.name;
         this.birthday = client.birthday;
         this.active = client.active;

@@ -37,6 +37,7 @@ class ClientService {
     // Register the client
     const newClient = await Client.create({
       name: clientDTO.name,
+      email: clientDTO.email,
       birthday: clientDTO.birthday,
       active: clientDTO.active,
       type: clientDTO.type ? clientDTO.type : "client",
@@ -61,7 +62,7 @@ class ClientService {
         let contact;
         contact = new Contact({
           ...contactDTO,
-          userType: "Especialist",
+          userType: clientDTO.type ? clientDTO.type : "client",
           user: newClient._id,
         });
         await contact.save();
