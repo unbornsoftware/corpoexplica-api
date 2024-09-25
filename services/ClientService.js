@@ -86,7 +86,7 @@ class ClientService {
 
     //Update
     if (clientDTO.name) client.name = clientDTO.name;
-    if (clientDTO.birthday) client.name = clientDTO.birthday;
+    if (clientDTO.birthdate) client.name = clientDTO.birthdate;
     if (clientDTO.roles) client.roles = clientDTO.roles;
 
     if (clientDTO.contacts && Array.isArray(clientDTO.contacts)) {

@@ -4,7 +4,7 @@ const documentSchema = require('./Document');
 const ClientSchema = new mongoose.Schema({
     name: {type: String},
     email: {type: String},
-    birthday: {type: Date},
+    birthdate: {type: Date},
     active: {type: Boolean},
     type: {type: String, enum: ['client', 'specialist']},
     documents: [documentSchema],

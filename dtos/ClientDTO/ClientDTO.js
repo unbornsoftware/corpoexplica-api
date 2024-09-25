@@ -3,7 +3,7 @@ class ClientDTO{
         this.id = client.id;
         this.email = client.email;
         this.name = client.name;
-        this.birthday = client.birthday;
+        this.birthdate = client.birthdate;
         this.active = client.active;
         this.type = client.type;
         this.documents = client.documents || null;
